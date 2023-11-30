@@ -19,7 +19,7 @@ let package = Package(
             url: "https://github.com/marmelroy/PhoneNumberKit.git",
             exact: "3.7.5"),
         .package(
-            url: "https://github.com/checkout/checkout-event-logger-ios-framework.git",
+            url: "https://github.com/malcolmluno/checkout-event-logger-ios-framework.git",
             from: "1.2.4"
         )
     ],
