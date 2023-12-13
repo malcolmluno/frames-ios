@@ -189,80 +189,60 @@ extension FramesPaymentViewController {
   }
 
     private func setupLoadingIndicatorClosure() {
-        viewModel.updateLoading = { [weak self] in
-            DispatchQueue.main.async {
-                self?.payButtonView.isLoading = self?.viewModel.isLoading ?? false
-            }
+        viewModel.updateLoading = { @MainActor [weak self] in
+            self?.payButtonView.isLoading = self?.viewModel.isLoading ?? false
         }
     }
 
   private func setupHeaderViewClosure() {
-    viewModel.updateHeaderView = { [weak self] in
-      DispatchQueue.main.async {
+    viewModel.updateHeaderView = { @MainActor [weak self] in
         self?.updateHeaderView()
-      }
     }
   }
 
   private func setupAddBillingDetailsViewClosure() {
-    viewModel.updateAddBillingDetailsView = { [weak self] in
-      DispatchQueue.main.async {
+    viewModel.updateAddBillingDetailsView = { @MainActor [weak self] in
         self?.updateAddBillingFormButtonView()
-      }
     }
   }
 
   private func setupEditBillingSummaryViewClosure() {
-    viewModel.updateEditBillingSummaryView = { [weak self] in
-      DispatchQueue.main.async {
+    viewModel.updateEditBillingSummaryView = { @MainActor [weak self] in
         self?.updateEditBillingSummaryView()
-      }
     }
   }
 
   private func setupExpiryDateViewClosure() {
-    viewModel.updateExpiryDateView = { [weak self] in
-      DispatchQueue.main.async {
+    viewModel.updateExpiryDateView = { @MainActor [weak self] in
         self?.updateExpiryDate()
-      }
     }
   }
 
   private func setupCardholderViewClosure() {
-    viewModel.updateCardholderView = { [weak self] in
-      DispatchQueue.main.async {
+    viewModel.updateCardholderView = { @MainActor [weak self] in
         self?.updateCardholder()
-      }
     }
   }
 
   private func setupCardNumberViewClosure() {
-    viewModel.updateCardNumberView = { [weak self] in
-      DispatchQueue.main.async {
+    viewModel.updateCardNumberView = { @MainActor [weak self] in
         self?.updateCardNumber()
-      }
     }
   }
 
   private func setupSecurityCodeViewClosures() {
-    viewModel.updateSecurityCodeViewStyle = { [weak self] in
-      DispatchQueue.main.async {
+    viewModel.updateSecurityCodeViewStyle = { @MainActor [weak self] in
         self?.updateSecurityCode()
-      }
     }
 
-    viewModel.updateSecurityCodeViewScheme = {  [weak self] scheme in
-      DispatchQueue.main.async {
+    viewModel.updateSecurityCodeViewScheme = { @MainActor [weak self] scheme in
         self?.securityCodeView.updateCardScheme(cardScheme: scheme)
-      }
     }
   }
 
   private func setupPayButtonViewClosure() {
-    viewModel.updatePayButtonView = { [weak self] in
-      DispatchQueue.main.async {
+    viewModel.updatePayButtonView = { @MainActor [weak self] in
         self?.updatePayButtonView()
-      }
     }
 
     viewModel.shouldEnablePayButton = { [weak self] isEnabled in
